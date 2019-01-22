@@ -31,14 +31,14 @@ var_dump($user->hasPermission('edit article')) //output "true"
 1. Install via composer
 
 ```bash
-composer require slince/cakephp-permission
+composer require jeffersonsimaogoncalves/cakephp-permission
 ```
 
 2. Load the plugin in `config/bootstrap.php`:
 
 ```php
 // Load the plugin.
-Plugin::load('Slince/CakePermission');
+Plugin::load('JeffersonSimaoGoncalves/CakePermission');
 ```
 3. Add the following configuration to your `app.php`
 
@@ -81,12 +81,12 @@ Plugin::load('Slince/CakePermission');
         /**
          * The Roles model class;If you want to use the default configuration. you don't need to change.
          */
-        //'Roles' => Slince\CakePermission\Model\Table\RolesTable::class,
+        //'Roles' => JeffersonSimaoGoncalves\CakePermission\Model\Table\RolesTable::class,
 
         /**
          * The Permissions model class;If you want to use the default configuration. you don't need to change.
          */
-        //'Permissions' => Slince\CakePermission\Model\Table\PermissionsTable::class
+        //'Permissions' => JeffersonSimaoGoncalves\CakePermission\Model\Table\PermissionsTable::class
     ]
 ]
 ```
@@ -113,7 +113,7 @@ Open your `User` entity, use `UserTrait` like this:
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
-use Slince\CakePermission\Model\Entity\UserTrait;
+use JeffersonSimaoGoncalves\CakePermission\Model\Entity\UserTrait;
 
 class User extends Entity
 {
@@ -134,7 +134,7 @@ Open your `UsersTable`, use `UserTableTrait` like this:
 namespace App\Model\Table;
 
 use Cake\ORM\Table;
-use Slince\CakePermission\Model\Table\UsersTableTrait;
+use JeffersonSimaoGoncalves\CakePermission\Model\Table\UsersTableTrait;
 
 class UsersTable extends Table
 {
@@ -273,8 +273,8 @@ You can extends all existing Entity or Table. Do not forget to modify the defaul
 
 ## Requirements
 
-- CakePHP >=3.4
-- PHP 5.5.9+
+- CakePHP >=3.6
+- PHP 7.0+
 
 ## LICENSE
 

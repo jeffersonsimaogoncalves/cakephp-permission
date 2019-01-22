@@ -2,7 +2,7 @@
 namespace TestApp\Model\Table;
 
 use Cake\ORM\Table;
-use Slince\CakePermission\Model\Table\RolesTableTrait;
+use JeffersonSimaoGoncalves\CakePermission\Model\Table\RolesTableTrait;
 
 class FooRolesTable extends Table
 {

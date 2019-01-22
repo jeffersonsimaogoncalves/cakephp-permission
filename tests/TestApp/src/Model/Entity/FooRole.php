@@ -1,7 +1,7 @@
 <?php
 namespace TestApp\Model\Entity;
 
-use Slince\CakePermission\Model\Entity\Role;
+use JeffersonSimaoGoncalves\CakePermission\Model\Entity\Role;
 
 class FooRole extends Role
 {

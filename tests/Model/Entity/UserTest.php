@@ -1,12 +1,12 @@
 <?php
-namespace Slince\CakePermission\Tests\Model\Entity;
+namespace JeffersonSimaoGoncalves\CakePermission\Tests\Model\Entity;
 
 use Cake\ORM\Query;
-use Slince\CakePermission\Model\Entity\Permission;
-use Slince\CakePermission\Model\Entity\Role;
-use Slince\CakePermission\Model\Entity\User;
-use Slince\CakePermission\TableFactory;
-use Slince\CakePermission\Tests\TestCase;
+use JeffersonSimaoGoncalves\CakePermission\Model\Entity\Permission;
+use JeffersonSimaoGoncalves\CakePermission\Model\Entity\Role;
+use JeffersonSimaoGoncalves\CakePermission\Model\Entity\User;
+use JeffersonSimaoGoncalves\CakePermission\TableFactory;
+use JeffersonSimaoGoncalves\CakePermission\Tests\TestCase;
 
 class UserTest extends TestCase
 {

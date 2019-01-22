@@ -1,7 +1,7 @@
 <?php
 namespace TestApp\Model\Entity;
 
-use Slince\CakePermission\Model\Entity\User;
+use JeffersonSimaoGoncalves\CakePermission\Model\Entity\User;
 
 class FooUser  extends User
 {

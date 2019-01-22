@@ -2,7 +2,7 @@
 namespace TestApp\Model\Table;
 
 use Cake\ORM\Table;
-use Slince\CakePermission\Model\Table\PermissionsTableTrait;
+use JeffersonSimaoGoncalves\CakePermission\Model\Table\PermissionsTableTrait;
 
 class FooPermissionsTable extends Table
 {

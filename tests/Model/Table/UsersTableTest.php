@@ -1,9 +1,9 @@
 <?php
-namespace Slince\CakePermission\Tests\Model\Table;
+namespace JeffersonSimaoGoncalves\CakePermission\Tests\Model\Table;
 
 use Cake\ORM\Association\BelongsToMany;
-use Slince\CakePermission\TableFactory;
-use Slince\CakePermission\Tests\TestCase;
+use JeffersonSimaoGoncalves\CakePermission\TableFactory;
+use JeffersonSimaoGoncalves\CakePermission\Tests\TestCase;
 use Cake\Core\Configure;
 
 class UsersTableTest extends TestCase

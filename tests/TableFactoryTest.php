@@ -1,12 +1,12 @@
 <?php
-namespace Slince\CakePermission\Tests;
+namespace JeffersonSimaoGoncalves\CakePermission\Tests;
 
 use Cake\Core\Configure;
 use Cake\ORM\TableRegistry;
-use Slince\CakePermission\Model\Table\PermissionsTable;
-use Slince\CakePermission\Model\Table\RolesTable;
-use Slince\CakePermission\Model\Table\UsersTable;
-use Slince\CakePermission\TableFactory;
+use JeffersonSimaoGoncalves\CakePermission\Model\Table\PermissionsTable;
+use JeffersonSimaoGoncalves\CakePermission\Model\Table\RolesTable;
+use JeffersonSimaoGoncalves\CakePermission\Model\Table\UsersTable;
+use JeffersonSimaoGoncalves\CakePermission\TableFactory;
 
 class TableFactoryTest extends TestCase
 {

@@ -1,14 +1,28 @@
 <?php
 /**
  * CakePHP permission handling library
+ *
  * @author Tao <taosikai@yeah.net>
  */
-namespace Slince\CakePermission\Shell;
+
+namespace JeffersonSimaoGoncalves\CakePermission\Shell;
 
 use Cake\Console\Shell;
-use Slince\CakePermission\Exception\RuntimeException;
+use JeffersonSimaoGoncalves\CakePermission\Exception\RuntimeException;
 
-class PermissionMigrateShell extends Shell
+/**
+ * Class PermissionMigrateShell
+ *
+ * Date: 22/01/2019 00:28
+ *
+ * Project: cakephp-permission
+ *
+ * @author Jefferson Simão Gonçalves <gerson.simao.92@gmail.com>
+ *
+ * @package JeffersonSimaoGoncalves\CakePermission\Shell
+ */
+class PermissionMigrateShell
+    extends Shell
 {
 
     protected $migrationFilesPath;
@@ -34,7 +48,9 @@ class PermissionMigrateShell extends Shell
 
     /**
      * Find array of migration file
+     *
      * @param string $path
+     *
      * @return array
      */
     protected function findMigrationFiles($path)
@@ -42,11 +58,17 @@ class PermissionMigrateShell extends Shell
         return glob("{$path}/*");
     }
 
+    /**
+     * @param $originFile
+     *
+     * @return bool
+     */
     protected function processMigrationFile($originFile)
     {
         $format = 'YmdHis';
         $newFileName = $this->migrationFilesPath
             . date($format) . '_' . basename($originFile);
+
         return copy($originFile, $newFileName);
     }
 }

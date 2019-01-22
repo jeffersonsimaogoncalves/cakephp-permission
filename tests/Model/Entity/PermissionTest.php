@@ -1,10 +1,10 @@
 <?php
-namespace Slince\CakePermission\Tests\Model\Entity;
+namespace JeffersonSimaoGoncalves\CakePermission\Tests\Model\Entity;
 
 use Cake\Datasource\Exception\RecordNotFoundException;
-use Slince\CakePermission\Exception\InvalidArgumentException;
-use Slince\CakePermission\Model\Entity\Permission;
-use Slince\CakePermission\Tests\TestCase;
+use JeffersonSimaoGoncalves\CakePermission\Exception\InvalidArgumentException;
+use JeffersonSimaoGoncalves\CakePermission\Model\Entity\Permission;
+use JeffersonSimaoGoncalves\CakePermission\Tests\TestCase;
 
 class PermissionTest extends TestCase
 {

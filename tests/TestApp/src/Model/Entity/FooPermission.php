@@ -1,7 +1,7 @@
 <?php
 namespace TestApp\Model\Entity;
 
-use Slince\CakePermission\Model\Entity\Permission;
+use JeffersonSimaoGoncalves\CakePermission\Model\Entity\Permission;
 
 class FooPermission extends Permission
 {

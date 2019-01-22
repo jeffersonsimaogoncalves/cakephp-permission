@@ -1,8 +1,8 @@
 <?php
-namespace Slince\CakePermission\Tests;
+namespace JeffersonSimaoGoncalves\CakePermission\Tests;
 
 use Cake\Database\Schema\TableSchema;
-use Slince\CakePermission\SchemaFactory;
+use JeffersonSimaoGoncalves\CakePermission\SchemaFactory;
 
 class SchemaFactoryTest extends TestCase
 {
