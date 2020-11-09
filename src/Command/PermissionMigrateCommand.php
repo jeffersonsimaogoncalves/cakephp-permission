@@ -1,36 +1,25 @@
 <?php
-/**
- * CakePHP permission handling library
- *
- * @author Tao <taosikai@yeah.net>
- */
 
-namespace JeffersonSimaoGoncalves\CakePermission\Shell;
+namespace JeffersonSimaoGoncalves\CakePermission\Command;
 
-use Cake\Console\Shell;
+use Cake\Command\Command;
+use Cake\Console\Arguments;
+use Cake\Console\ConsoleIo;
 use JeffersonSimaoGoncalves\CakePermission\Exception\RuntimeException;
 
 /**
- * Class PermissionMigrateShell
+ * Class PermissionMigrateCommand
  *
- * Date: 22/01/2019 00:28
- *
- * Project: cakephp-permission
- *
- * @author Jefferson Simão Gonçalves <gerson.simao.92@gmail.com>
- *
- * @package JeffersonSimaoGoncalves\CakePermission\Shell
+ * @package JeffersonSimaoGoncalves\CakePermission\Command
  */
-class PermissionMigrateShell
-    extends Shell
+class PermissionMigrateCommand extends Command
 {
-
-    protected $migrationFilesPath;
-
     /**
-     * {@inheritdoc}
+     * @var string
      */
-    public function main()
+    private $migrationFilesPath;
+
+    public function execute(Arguments $args, ConsoleIo $io)
     {
         $this->migrationFilesPath = CONFIG . 'Migrations/';
         //Creates the directory if it does not exists
@@ -43,7 +32,7 @@ class PermissionMigrateShell
                 throw new RuntimeException(sprintf('Fail to copy migration file "%s"', $file));
             }
         }
-        $this->out('Migrate ok, please execute command "./cake migrations migrate"');
+        $io->out('Migrate ok, please execute command "./cake migrations migrate"');
     }
 
     /**
@@ -53,7 +42,7 @@ class PermissionMigrateShell
      *
      * @return array
      */
-    protected function findMigrationFiles($path)
+    protected function findMigrationFiles(string $path)
     {
         return glob("{$path}/*");
     }

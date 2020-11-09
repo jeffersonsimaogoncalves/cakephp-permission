@@ -28,7 +28,7 @@ trait PermissionTrait
     /**
      * Finds the permission by its name, if it does not exists, the role will be created
      *
-     * @param string $name
+     * @param  string  $name
      *
      * @return PermissionInterface
      */
@@ -46,21 +46,21 @@ trait PermissionTrait
     /**
      * Gets the permission by its name
      *
-     * @param string $name
+     * @param  string  $name
      *
      * @return PermissionInterface
      */
     public static function find($name)
     {
         return TableFactory::getPermissionModel()
-                           ->findByName($name)
-                           ->firstOrFail();
+            ->findByName($name)
+            ->firstOrFail();
     }
 
     /**
      * Creates a role
      *
-     * @param string|array $arguments
+     * @param  string|array  $arguments
      *
      * @return PermissionInterface
      */
@@ -72,10 +72,11 @@ trait PermissionTrait
             ];
         }
         $arguments['slug'] = Text::slug($arguments['name']);
+        /** @var \JeffersonSimaoGoncalves\CakePermission\Model\Entity\Permission $permission */
         $permission = TableFactory::getPermissionModel()
-                                  ->newEntity($arguments, ['validate' => 'permission']);
+            ->newEntity($arguments, ['validate' => 'permission']);
         if (TableFactory::getPermissionModel()
-                        ->save($permission) === false) {
+                ->save($permission) === false) {
             throw new InvalidArgumentException(sprintf('Failed to create the permission "%s"',
                 $arguments['name']));
         }
