@@ -6,6 +6,7 @@
  */
 
 namespace JeffersonSimaoGoncalves\CakePermission\Exception;
+
 /**
  * Class InvalidArgumentException
  *

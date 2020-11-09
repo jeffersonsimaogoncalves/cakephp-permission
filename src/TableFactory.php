@@ -33,8 +33,8 @@ class TableFactory
      * @var array
      */
     protected static $defaultModelClasses = [
-        'Users'       => UsersTable::class,
-        'Roles'       => RolesTable::class,
+        'Users' => UsersTable::class,
+        'Roles' => RolesTable::class,
         'Permissions' => PermissionsTable::class,
     ];
 
@@ -51,13 +51,13 @@ class TableFactory
     /**
      * Gets the model instance
      *
-     * @param $name
+     * @param  string  $name
      *
      * @return Table
      */
-    public static function getModel($name)
+    public static function getModel(string $name)
     {
-        return TableRegistry::get("_Permission{$name}", [
+        return TableRegistry::getTableLocator()->get("_Permission{$name}", [
             'className' => static::getModelClass($name),
         ]);
     }
@@ -65,11 +65,11 @@ class TableFactory
     /**
      * Gets the default model class
      *
-     * @param string $name
+     * @param  string  $name
      *
      * @return string
      */
-    public static function getModelClass($name)
+    public static function getModelClass(string $name)
     {
         return Configure::read("Permission.tableClassMap.{$name}") ?: static::$defaultModelClasses[$name];
     }

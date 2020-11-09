@@ -34,7 +34,7 @@ trait RoleTrait
     /**
      * Finds the role, if it does not exists, the role will be created
      *
-     * @param string $name
+     * @param  string  $name
      *
      * @return RoleInterface
      */
@@ -52,15 +52,15 @@ trait RoleTrait
     /**
      * Finds the role by its name
      *
-     * @param string $name
+     * @param  string  $name
      *
      * @return RoleInterface
      */
     public static function find($name)
     {
         return TableFactory::getRoleModel()
-                           ->findByName($name)
-                           ->firstOrFail();
+            ->findByName($name)
+            ->firstOrFail();
     }
 
     /**
@@ -78,10 +78,11 @@ trait RoleTrait
             ];
         }
         $arguments['slug'] = Text::slug($arguments['name']);
+        /** @var \JeffersonSimaoGoncalves\CakePermission\Model\Entity\Role $role */
         $role = TableFactory::getRoleModel()
-                            ->newEntity($arguments, ['validate' => 'permission']);
+            ->newEntity($arguments, ['validate' => 'permission']);
         if (TableFactory::getRoleModel()
-                        ->save($role) === false) {
+                ->save($role) === false) {
             throw new InvalidArgumentException('Failed to create the role');
         }
 
@@ -91,19 +92,19 @@ trait RoleTrait
     /**
      * Gives the permission or an array of permissions
      *
-     * @param string|PermissionInterface|array $permission
+     * @param  string|PermissionInterface|array  $permission
      *
      * @return bool
      */
     public function givePermission($permission)
     {
         $permissions = is_array($permission) ? $permission : [$permission];
-        $permissions = array_map(function($permission) {
+        $permissions = array_map(function ($permission) {
             return is_string($permission) ? Permission::find($permission) : $permission;
         }, $permissions);
         $this->set('permissions', $permissions);
         $result = TableFactory::getRoleModel()
-                              ->save($this) !== false;
+                ->save($this) !== false;
         PermissionsTableTrait::refreshCache($this->id);
 
         return $result;
@@ -112,9 +113,9 @@ trait RoleTrait
     /**
      * Revokes the permissions of the role
      *
-     * @param string|PermissionInterface $permission
+     * @param  string|PermissionInterface  $permission
      *
-     * @return
+     * @return \JeffersonSimaoGoncalves\CakePermission\Model\Entity\RoleInterface
      */
     public function revokePermission($permission)
     {
@@ -122,8 +123,8 @@ trait RoleTrait
             $permission = Permission::find($permission);
         }
         $result = TableFactory::getRoleModel()
-                              ->association('Permissions')
-                              ->unlink($this, [$permission]);
+            ->association('Permissions')
+            ->unlink($this, [$permission]);
         PermissionsTableTrait::refreshCache($this->id);
 
         return $result;
@@ -137,9 +138,9 @@ trait RoleTrait
     public function revokeAllPermissions()
     {
         $result = TableFactory::getRoleModel()
-                              ->association('Permissions')
-                              ->unlink($this,
-                                  $this->getAllPermissions());
+            ->association('Permissions')
+            ->unlink($this,
+                $this->getAllPermissions());
         PermissionsTableTrait::refreshCache($this->id);
 
         return $result;
@@ -153,16 +154,16 @@ trait RoleTrait
     public function getAllPermissions()
     {
         $primaryKey = TableFactory::getRoleModel()
-                                  ->getPrimaryKey();
+            ->getPrimaryKey();
         $id = $this->get($primaryKey);
 
-        return Cache::remember(sprintf(Constants::CACHE_PERMISSIONS, $id), function() use ($id) {
+        return Cache::remember(sprintf(Constants::CACHE_PERMISSIONS, $id), function () use ($id) {
             return TableFactory::getPermissionModel()
-                               ->find()
-                               ->matching('Roles', function(Query $query) use ($id) {
-                                   return $query->where(['Roles.id' => $id]);
-                               })
-                               ->toArray();
+                ->find()
+                ->matching('Roles', function (Query $query) use ($id) {
+                    return $query->where(['Roles.id' => $id]);
+                })
+                ->toArray();
         });
     }
 }

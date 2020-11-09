@@ -49,7 +49,7 @@ interface RoleInterface
      *
      * @param $permission
      *
-     * @return
+     * @return \JeffersonSimaoGoncalves\CakePermission\Model\Entity\RoleInterface
      */
     public function revokePermission($permission);
 
